@@ -2,12 +2,14 @@ from django.urls import path
 from shop.views import *
 
 urlpatterns = [
-    path('category/create/', CategoryCreateAPI.as_view(), name='category-create'),
-    path('category/read/', CategoryListAPI.as_view(), name='category-read'),
-    path('category/update/', CategoryUpdateAPI.as_view(), name='category-update'),
-    path('category/delete/', CategoryDeleteAPI.as_view(), name='category-delete'),
-    path('product/create/', ProductCreateAPI.as_view(), name='product-create'),
-    path('product/read/', ProductReadAPI.as_view(), name='product-read'),
-    path('product/update/', ProductUpdateAPI.as_view(), name='product-update'),
-    path('product/delete/', ProductDeleteAPI.as_view(), name='product-delete'),
+    path('categories/', CategoryViewSet.as_view()),
+    path('courses/<int:category_id>/', CourseViewSet.as_view()),
+    path('groups/<int:course_id>/', GroupViewSet.as_view()),
+    path('modules/<int:group_id>/', ModuleViewSet.as_view()),
+    path('homework/', HomeworkViewSet.as_view()),
+    path('homework/<int:pk>/', HomeworkViewSet.as_view()),
+    path('students/<int:group_id>/', StudentViewSet.as_view()),
+    path('students/<int:group_id>/<int:pk>/', StudentViewSet.as_view()),
+    path('teachers/', TeacherViewSet.as_view()),
+    path('teachers/<int:pk>/', TeacherViewSet.as_view()),
 ]

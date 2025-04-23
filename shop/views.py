@@ -1,47 +1,59 @@
 from rest_framework import generics
-
-from shop.models import Category, Product
-from shop.serializer import CategorySerializer, ProductSerializer
-
-
-# Create your views here.
+from rest_framework.viewsets import ModelViewSet
+from .serializer import *
+from django.shortcuts import get_object_or_404
 
 
-class CategoryCreateAPI(generics.CreateAPIView):
+class CategoryViewSet(generics.ListAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
 
 
-class CategoryListAPI(generics.ListAPIView):
-    queryset = Category.objects.all()
-    serializer_class = CategorySerializer
+class CourseViewSet(generics.ListAPIView):
+    queryset = Course.objects.all()
+    serializer_class = CourseSerializer
+
+    def get_queryset(self):
+        category_id = self.kwargs.get("category_id")
+        return Course.objects.filter(category=category_id)
 
 
-class CategoryUpdateAPI(generics.UpdateAPIView):
-    queryset = Category.objects.all()
-    serializer_class = CategorySerializer
+class GroupViewSet(generics.ListAPIView):
+    queryset = Group.objects.all()
+    serializer_class = GroupSerializer
+
+    def get_queryset(self):
+        course_id = self.kwargs.get("course_id")
+        return Group.objects.filter(course=course_id)
 
 
-class CategoryDeleteAPI(generics.DestroyAPIView):
-    queryset = Category.objects.all()
-    serializer_class = CategorySerializer
+class ModuleViewSet(generics.ListAPIView):
+    queryset = Module.objects.all()
+    serializer_class = ModuleSerializer
+
+    def get_queryset(self):
+        group_id = self.kwargs.get("group_id")
+        return Module.objects.filter(group=group_id)
 
 
-class ProductCreateAPI(generics.CreateAPIView):
-    queryset = Product.objects.all()
-    serializer_class = ProductSerializer
+class HomeworkViewSet(ModelViewSet):
+    queryset = Homework.objects.all()
+    serializer_class = HomeworkSerializer
+
+    def get_queryset(self):
+        module_id = self.kwargs.get("module_id")
+        return get_object_or_404(Module, pk=module_id)
 
 
-class ProductReadAPI(generics.ListAPIView):
-    queryset = Product.objects.all()
-    serializer_class = ProductSerializer
+class StudentViewSet(ModelViewSet):
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
+
+    def get_object(self):
+        group_id = self.kwargs.get("group_id")
+        return Student.objects.filter(group=group_id)
 
 
-class ProductUpdateAPI(generics.RetrieveUpdateAPIView):
-    queryset = Product.objects.all()
-    serializer_class = ProductSerializer
-
-
-class ProductDeleteAPI(generics.DestroyAPIView):
-    queryset = Product.objects.all()
-    serializer_class = ProductSerializer
+class TeacherViewSet(ModelViewSet):
+    queryset = Teacher.objects.all()
+    serializer_class = TeacherSerializer
