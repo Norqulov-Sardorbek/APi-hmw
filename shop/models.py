@@ -99,6 +99,7 @@ class Video(models.Model):
     module = models.ForeignKey(Module, on_delete=models.CASCADE, related_name='videos')
 
 
+
 class Student(models.Model):
     gender_choices = (
         ("MALE", "male"),
@@ -130,3 +131,21 @@ class Student(models.Model):
 
     def __str__(self):
         return self.student_code
+
+
+class DoHomework(models.Model):
+    STATUS_CHOICES = (
+        ("CHECKED", "checked"),
+        ("PENDING", "pending"),
+    )
+    student = models.ForeignKey(Student, on_delete=models.CASCADE, related_name='homework')
+    module= models.ForeignKey(Module, on_delete=models.CASCADE, related_name='homework')
+    caption=models.TextField()
+    file=models.FileField(upload_to='done_homework/files/')
+    score = models.IntegerField(default=0)
+    status=models.CharField(choices=STATUS_CHOICES,default="PENDING")
+
+class Points(models.Model):
+    student = models.ForeignKey(Student, on_delete=models.CASCADE, related_name='points')
+    xp=models.IntegerField(default=0)
+    silver=models.IntegerField(default=0)
