@@ -14,7 +14,7 @@ def generate_student_code():
 
 
 def default_deadline():
-    # timezone.now() ga 48 soat qoâ€˜shib qaytaramiz
+
     return timezone.now() + timedelta(hours=48)
 
 
@@ -59,7 +59,7 @@ class Group(models.Model):
                                on_delete=models.CASCADE,
                                related_name='groups')
     teacher = models.ForeignKey(Teacher,
-                                on_delete=models.SET_NULL,
+                                on_delete=models.SET_NULL,null=True,
                                 related_name='groups')
     started_at = models.DateTimeField()
     ended_at = models.DateTimeField()
@@ -126,7 +126,7 @@ class Student(models.Model):
         help_text="Avtomatik yaratilgan 5 xonali student kod"
     )
     group = models.ForeignKey(Group,
-                              on_delete=models.SET_NULL,
+                              on_delete=models.SET_NULL,null=True,
                               related_name='students')
 
     def __str__(self):
@@ -138,8 +138,8 @@ class DoHomework(models.Model):
         ("CHECKED", "checked"),
         ("PENDING", "pending"),
     )
-    student = models.ForeignKey(Student, on_delete=models.CASCADE, related_name='homework')
-    module= models.ForeignKey(Module, on_delete=models.CASCADE, related_name='homework')
+    student = models.ForeignKey(Student, on_delete=models.CASCADE, related_name='dohomework')
+    module= models.ForeignKey(Module, on_delete=models.CASCADE, related_name='dohomework')
     caption=models.TextField()
     file=models.FileField(upload_to='done_homework/files/')
     score = models.IntegerField(default=0)

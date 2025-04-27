@@ -18,6 +18,12 @@ class CourseViewSet(generics.ListAPIView):
         return Course.objects.filter(category=category_id)
 
 
+class CourseListByCategoryAPI(generics.ListAPIView):
+    queryset = Course.objects.all()
+    serializer_class = CourseSerializer
+    lookup_field = 'category_id'
+
+
 class GroupViewSet(generics.ListAPIView):
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
@@ -36,7 +42,7 @@ class ModuleViewSet(generics.ListAPIView):
         return Module.objects.filter(group=group_id)
 
 
-class HomeworkViewSet(ModelViewSet):
+class HomeworkViewSet(generics.ListAPIView):
     queryset = Homework.objects.all()
     serializer_class = HomeworkSerializer
 
@@ -45,7 +51,7 @@ class HomeworkViewSet(ModelViewSet):
         return get_object_or_404(Module, pk=module_id)
 
 
-class StudentViewSet(ModelViewSet):
+class StudentViewSet(generics.ListAPIView):
     queryset = Student.objects.all()
     serializer_class = StudentSerializer
 
@@ -54,6 +60,6 @@ class StudentViewSet(ModelViewSet):
         return Student.objects.filter(group=group_id)
 
 
-class TeacherViewSet(ModelViewSet):
+class TeacherViewSet(generics.ListAPIView):
     queryset = Teacher.objects.all()
     serializer_class = TeacherSerializer
