@@ -1,5 +1,6 @@
-from rest_framework import generics
+from rest_framework import generics,status
 from rest_framework.viewsets import ModelViewSet
+from rest_framework.response import Response
 from .serializer import *
 from django.shortcuts import get_object_or_404
 
@@ -40,6 +41,22 @@ class ModuleViewSet(generics.ListAPIView):
     def get_queryset(self):
         group_id = self.kwargs.get("group_id")
         return Module.objects.filter(group=group_id)
+class ModuleCreateAPIView(generics.CreateAPIView):
+    queryset = Module.objects.all()
+    serializer_class = ModuleSerializer
+
+    def post(self, request, *args, **kwargs):
+        group_id = self.kwargs.get("group_id")
+        group = get_object_or_404(Group, pk=group_id)
+
+        data = request.data
+        data['group'] = group.id
+
+        serializer = self.get_serializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 class HomeworkViewSet(generics.ListAPIView):
@@ -48,16 +65,34 @@ class HomeworkViewSet(generics.ListAPIView):
 
     def get_queryset(self):
         module_id = self.kwargs.get("module_id")
-        return get_object_or_404(Module, pk=module_id)
+        return Homework.objects.filter(module=module_id)
 
+class HomeworkCreateAPIView(generics.CreateAPIView):
+    queryset = Homework.objects.all()
+    serializer_class = HomeworkSerializer
+
+    def post(self, request, *args, **kwargs):
+        module_id = self.kwargs.get("module_id")
+        module = get_object_or_404(Module, pk=module_id)
+
+        data = request.data
+        data['module'] = module.id
+
+
+        serializer = self.get_serializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class StudentViewSet(generics.ListAPIView):
     queryset = Student.objects.all()
     serializer_class = StudentSerializer
 
-    def get_object(self):
+    def get_queryset(self):
         group_id = self.kwargs.get("group_id")
         return Student.objects.filter(group=group_id)
+
 
 
 class TeacherViewSet(generics.ListAPIView):
