@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from rest_framework.generics import ListCreateAPIView,RetrieveUpdateDestroyAPIView,GenericAPIView,ListAPIView,CreateAPIView
 from rest_framework.views import APIView
-from erp.models import Category,Course,Student,Homework
-from .serializers import CategoryModelSerializer,CourseModelSerializer,StudentModelSerializer,HomeworkSerializer
+from erp.models import Category,Course,Student,Homework,Video
+from .serializers import CategoryModelSerializer,CourseModelSerializer,StudentModelSerializer,HomeworkSerializer,VideoSerializer
 from django.db.models import Count
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
@@ -94,3 +94,11 @@ class HomeworkCreateAPIView(CreateAPIView):
     
     def perform_create(self, serializer):
         return super().perform_create(serializer)
+    
+    
+
+class VideoListCReateApiView(ListCreateAPIView):
+    serializer_class = VideoSerializer
+    queryset = Video.objects.all()
+    permission_classes = [IsAuthenticated]
+    

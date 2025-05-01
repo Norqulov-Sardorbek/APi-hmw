@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from erp.models import Category,Course,Student,Module,Homework
+from erp.models import Category,Course,Student,Module,Homework,Video
 
 
 
@@ -59,5 +59,10 @@ class HomeworkSerializer(serializers.ModelSerializer):
         module.save()
         return homework
         
+class VideoSerializer(serializers.ModelSerializer):
+    status = serializers.CharField(read_only = True)
+    class Meta:
+        model = Video
+        fields = ['name','file','status','file_size','module','created_at']
         
         

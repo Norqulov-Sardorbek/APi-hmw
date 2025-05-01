@@ -108,13 +108,47 @@ class Homework(models.Model):
     def __str__(self):
         return self.overview
     
+    
+
+def get_file_size_in_readable_format(file):
+    size_in_bytes = file.size
+    if size_in_bytes < 1024:
+        return f"{size_in_bytes} B"  # Bytes
+    elif size_in_bytes < 1024 ** 2:
+        return f"{size_in_bytes / 1024:.2f} KB"  # Kilobytes
+    elif size_in_bytes < 1024 ** 3:
+        return f"{size_in_bytes / 1024 ** 2:.2f} MB"  # Megabytes
+    else:
+        return f"{size_in_bytes / 1024 ** 3:.2f} GB"  # Gigabytes
+
+
+
+
+
 class Video(models.Model):
-    title = models.CharField(max_length=200)
+    class StatusChoice(models.TextChoices):
+        UPLOADING = 'uploading'
+        READY = 'ready'
+    
+    
+    name = models.CharField(max_length=200)
     file = models.FileField(upload_to='video/files/')
     module = models.ForeignKey(Module,
                                on_delete=models.CASCADE,
                                related_name='videos')
+    status = models.CharField(choices=StatusChoice.choices,default=StatusChoice.UPLOADING.value) 
+    created_at = models.DateTimeField(auto_now_add=True)
+    # file_size = models.CharField()
     
+    @property
+    def file_size(self):
+        if self.file:
+            return get_file_size_in_readable_format(self.file)
+        return None
+            
+    
+    
+        
     def __str__(self):
         return self.title
     
