@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="65bf2c94-093e-4aa1-9445-8b4c373af9d7" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/erp/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/erp/.vscode/settings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/erp/config/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/erp/config/asgi.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/erp/config/settings.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/erp/config/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/erp/config/wsgi.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/erp/erp/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/erp/erp/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/erp/erp/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/erp/erp/media/student/images/Unknown.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/erp/erp/media/student/images/olmos.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/erp/erp/media/teacher/images/108140941.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/erp/erp/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/erp/erp/migrations/0002_alter_category_slug_alter_student_group.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/erp/erp/migrations/0003_homework_created_at_alter_homework_file.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/erp/erp/migrations/0004_rename_title_video_name_video_status.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/erp/erp/migrations/0005_video_created_at.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/erp/erp/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/erp/erp/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/erp/erp/serializers.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/erp/erp/signals.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/erp/erp/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/erp/erp/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/erp/erp/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/erp/manage.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../config/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../config/asgi.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../config/settings.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../config/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../config/wsgi.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../db.sqlite3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../erp/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../erp/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../erp/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../erp/media/student/images/Unknown.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../erp/media/student/images/olmos.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../erp/media/teacher/images/108140941.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../erp/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../erp/migrations/0002_alter_category_slug_alter_student_group.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../erp/migrations/0003_homework_created_at_alter_homework_file.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../erp/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../erp/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../erp/serializers.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../erp/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../erp/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../erp/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../manage.py" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/erp" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Norqulov-Sardorbek&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Norqulov-Sardorbek/APi-hmw.git&quot;,
+    &quot;accountId&quot;: &quot;c1ee2104-182d-4092-8cb4-855d44427e70&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2wUOaVLQ8qM9LK55Fdg3fVPvxQh" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="Api" type="Python.DjangoServer" factoryName="Django server">
+      <module name="Api" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-PY-243.26053.29" />
+        <option value="bundled-python-sdk-b1dbf8ef85a6-4df51de95216-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.26053.29" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="65bf2c94-093e-4aa1-9445-8b4c373af9d7" name="Changes" comment="" />
+      <created>1746092752482</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1746092752482</updated>
+      <workItem from="1746092754129" duration="570000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
