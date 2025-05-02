@@ -1,5 +1,5 @@
 from rest_framework import permissions
-
+from datetime import datetime, time
 
 class IsOwnerOrReadOnly(permissions.BasePermission):
     def has_object_permission(self, request, view, obj):
@@ -53,4 +53,13 @@ class IsInGroup(permissions.BasePermission):
         return request.user and request.user.groups.filter(name=self.group_name).exists()
 
 
+
+
+
+class IsWorkHours(permissions.BasePermission):
+    def has_permission(self, request, view):
+        now = datetime.now().time()
+        start = time(9, 0)
+        end = time(18, 0)
+        return start <= now <= end
 
