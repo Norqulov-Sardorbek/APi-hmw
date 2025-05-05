@@ -1,65 +1,35 @@
 from rest_framework import permissions
-from datetime import datetime, time
+from datetime import timedelta, datetime
 
-class IsOwnerOrReadOnly(permissions.BasePermission):
+
+
+
+    
+        
+class CanEditWithinSpecialTime(permissions.BasePermission):
+    message = 'User Or Time exception'
     def has_object_permission(self, request, view, obj):
-        if request.method in permissions.SAFE_METHODS:
-            return True
-        return obj.owner == request.user
-
-class IsAdminOrReadOnly(permissions.BasePermission):
-    def has_permission(self, request, view):
-        if request.method in permissions.SAFE_METHODS:
-            return True
-        return request.user and request.user.is_staff
-
-
-class IsSuperUser(permissions.BasePermission):
-    def has_permission(self, request, view):
-        return request.user and request.user.is_superuser
-
-
-class IsSelf(permissions.BasePermission):
-    def has_object_permission(self, request, view, obj):
-        return obj == request.user
-
-
-class IsVerifiedUser(permissions.BasePermission):
-    def has_permission(self, request, view):
-        return request.user and getattr(request.user, 'is_verified', False)
-
-class AllowOnlyPost(permissions.BasePermission):
-    def has_permission(self, request, view):
-        return request.method == 'POST'
-
-
-class ReadOrDeleteOnly(permissions.BasePermission):
-    def has_permission(self, request, view):
-        return request.method in ['GET', 'DELETE']
-
-
-class IsStaffOrReadOnly(permissions.BasePermission):
-    def has_object_permission(self, request, view, obj):
-        if request.method in permissions.SAFE_METHODS:
-            return True
-        return request.user and request.user.is_staff
-
-
-class IsInGroup(permissions.BasePermission):
-    def __init__(self, group_name):
-        self.group_name = group_name
-
-    def has_permission(self, request, view):
-        return request.user and request.user.groups.filter(name=self.group_name).exists()
-
-
-
-
-
-class IsWorkHours(permissions.BasePermission):
-    def has_permission(self, request, view):
-        now = datetime.now().time()
-        start = time(9, 0)
-        end = time(18, 0)
-        return start <= now <= end
-
+        if request.method in ['PUT','PATCH','DELETE']:
+            if request.user.username != 'jasur':
+                return False
+            
+            deadline = datetime.now(obj.created_at.tzinfo) - obj.created_at
+            print(deadline)
+            return deadline < timedelta(hours=2)
+    
+        return True
+    
+    
+# class EditWithinTwoHours(permissions.BasePermission):
+#     """
+#     Custom permission to only allow edits within 2 hours of object creation.
+#     """
+    
+#     def has_object_permission(self, request, view, obj):
+#         # Read permissions are allowed to any request
+#         if request.method in permissions.SAFE_METHODS:
+#             return True
+            
+#         # Write permissions are only allowed within 2 hours of creation
+#         time_since_creation = datetime.now(obj.created_at.tzinfo) - obj.created_at
+#         return time_since_creation < timedelta(hours=2)
