@@ -4,11 +4,7 @@ from erp.models import Category,Course,Student,Module,Homework,Video
 
 
 class CourseModelSerializer(serializers.ModelSerializer):
-    # category_name = serializers.SerializerMethodField()
-    # test_c = serializers.CharField(source='category.name')
-    
-    # def get_category_name(self,obj):
-    #     return obj.category.name
+    category=serializers.CharField(source='category.id',read_only=True)
     
     class Meta:
         model = Course
@@ -17,15 +13,6 @@ class CourseModelSerializer(serializers.ModelSerializer):
         
 
 class CategoryModelSerializer(serializers.ModelSerializer):
-    # courses = CourseModelSerializer(many=True, read_only = True)
-    # slug = serializers.SlugField(read_only = True)
-    # course_count = serializers.IntegerField()
-    # course_count = serializers.SerializerMethodField()
-    
-    
-    # def get_course_count(self,instance):
-    #     return instance.courses.count()
-    
 
     class Meta:
         model = Category
@@ -48,6 +35,7 @@ class ModuleSerializer(serializers.ModelSerializer):
         
 class HomeworkSerializer(serializers.ModelSerializer):
     deadline = serializers.DateTimeField(read_only = True)
+    module=serializers.CharField(source='module.id',read_only=True)
     class Meta:
         model  = Homework
         fields = '__all__'
@@ -61,6 +49,7 @@ class HomeworkSerializer(serializers.ModelSerializer):
         
 class VideoSerializer(serializers.ModelSerializer):
     status = serializers.CharField(read_only = True)
+    module = serializers.CharField(source='module.id', read_only=True)
     class Meta:
         model = Video
         fields = ['name','file','status','file_size','module','created_at']

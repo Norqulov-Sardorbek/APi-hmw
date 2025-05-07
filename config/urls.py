@@ -20,7 +20,7 @@ from django.conf.urls.static import static
 from config import settings
 from rest_framework.authtoken import views
 from erp.custom_oauth_token import CustomAuthToken,LogoutAPIView
-
+from debug_toolbar.toolbar import debug_toolbar_urls
 
 
 urlpatterns = [
@@ -32,4 +32,4 @@ urlpatterns = [
 
 
     
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)+ debug_toolbar_urls()

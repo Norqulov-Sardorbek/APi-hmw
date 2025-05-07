@@ -1,5 +1,5 @@
 from django.contrib import admin
-from erp.models import Category,Course, Module,Student,Group,Teacher,Homework
+from erp.models import Category,Course, Module,Student,Group,Teacher,Homework,Video
 # Register your models here.
 
 @admin.register(Category)
@@ -16,6 +16,7 @@ class StudentAdmin(admin.ModelAdmin):
     
 admin.site.register(Group)
 admin.site.register(Course)
+admin.site.register(Video)
 admin.site.register(Teacher)
 
 

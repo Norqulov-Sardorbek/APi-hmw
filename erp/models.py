@@ -150,7 +150,7 @@ class Video(models.Model):
     
         
     def __str__(self):
-        return self.title
+        return self.name
     
 # module = Module()
 # module.group.students.count()
